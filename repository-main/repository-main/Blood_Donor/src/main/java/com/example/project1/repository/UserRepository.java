@@ -1,0 +1,18 @@
+package com.example.project1.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.project1.Entity.UserEntity;
+
+@Repository
+public interface UserRepository extends JpaRepository<UserEntity, Integer> {
+
+    Optional<UserEntity> findByEmailAndPasswordAndRole(
+            String email,
+            String password,
+            String role);
+    Optional<UserEntity> findByEmail(String email);
+}
