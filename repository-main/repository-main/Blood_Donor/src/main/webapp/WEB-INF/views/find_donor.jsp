@@ -74,6 +74,76 @@ body{
     padding:20px;
 }
 
+
+.menu-title{
+    font-size:12px;
+    color:#999;
+    margin:20px 0 10px;
+}
+
+.menu{
+    list-style:none;
+    padding:0;
+}
+
+.menu li{
+    padding:12px;
+    margin-bottom:8px;
+    border-radius:10px;
+    cursor:pointer;
+    color:#ddd;
+}
+
+.menu li i{
+    margin-right:10px;
+}
+
+.menu li:hover{
+    background:#1b2148;
+}
+
+.badge{
+    float:right;
+    background:#e74c3c;
+    padding:2px 8px;
+    border-radius:20px;
+    font-size:12px;
+    color:white;
+}
+
+.user-card{
+    margin-top:auto;
+    display:flex;
+    gap:12px;
+    background:#1d2140;
+    padding:12px;
+    border-radius:12px;
+    color:white;
+}
+
+.avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#d94b3d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-weight:bold;
+}
+
+.user-card p{
+    color:#bbb;
+    font-size:12px;
+}
+
+.logout{
+    margin-top:15px;
+    color:#ff8b7d;
+    cursor:pointer;
+    padding:10px;
+}
 .nav-item{
     display:block;
     padding:14px;
@@ -180,27 +250,85 @@ button{
         </div>
     </div>
 
-   <div class="menu">
+   <div class="menu-title">MAIN MENU</div>
 
-    <div class="nav-item"
-         onclick="window.location.href='userdashboard'"
-         style="cursor:pointer;">
-        <i class="fa fa-home"></i> Dashboard
+<ul class="menu">
+
+    <li onclick="window.location.href='userdashboard'"
+        style="cursor:pointer;">
+        <i class="fa-regular fa-square"></i>
+        Dashboard
+    </li>
+
+    <li class="active"
+        onclick="window.location.href='findDonors'"
+        style="cursor:pointer;">
+        <i class="fas fa-search"></i>
+        Find Donors
+    </li>
+
+    <li onclick="window.location.href='emergency_request'"
+        style="cursor:pointer;">
+        <i class="fas fa-triangle-exclamation"></i>
+        Emergency Request
+    </li>
+
+</ul>
+
+<div class="menu-title">MY ACCOUNT</div>
+
+<ul class="menu">
+
+    <li onclick="window.location.href='requestHistory'"
+        style="cursor:pointer;">
+        <i class="fas fa-history"></i>
+        Request History
+    </li>
+
+    <li onclick="window.location.href='notifications'"
+        style="cursor:pointer;">
+        <i class="far fa-bell"></i>
+        Notifications
+        <span class="badge">2</span>
+    </li>
+
+    <li onclick="window.location.href='profile'"
+        style="cursor:pointer;">
+        <i class="far fa-user"></i>
+        My Profile
+    </li>
+
+</ul>
+
+<div class="menu-title">SUPPORT</div>
+
+<ul class="menu">
+
+    <li onclick="window.location.href='contactUs'"
+        style="cursor:pointer;">
+        <i class="far fa-envelope"></i>
+        Contact Us
+    </li>
+
+</ul>
+
+<div class="user-card">
+    <div class="avatar">
+        <%= initials %>
     </div>
-
-    <div class="nav-item active"
-         onclick="window.location.href='findDonors'"
-         style="cursor:pointer;">
-        <i class="fa fa-search"></i> Find Donors
+    <div>
+        <h4><%= name %></h4>
+        <p>BloodConnect User</p>
     </div>
-
-    <div class="nav-item"
-         onclick="window.location.href='emergency_request'"
-         style="cursor:pointer;">
-        <i class="fa fa-triangle-exclamation"></i> Emergency Request
-    </div>
-
 </div>
+
+<div class="logout"
+     onclick="window.location.href='logout'"
+     style="cursor:pointer;">
+    <i class="fas fa-sign-out-alt"></i>
+    Sign Out
+</div>
+
 
 </div>
 
@@ -252,9 +380,7 @@ button{
                        value="${param.city}"
                        placeholder="Enter city">
 
-                <button type="submit">
-                    Search
-                </button>
+                <button type="button" onclick="searchDonors()">Search</button>
 
             </form>
 
@@ -311,6 +437,13 @@ button{
     </div>
 
 </div>
+<script>
+function searchDonors() {
+    document.getElementById("searchForm").submit();
+}
+</script>
+
+
 
 </body>
 </html>
