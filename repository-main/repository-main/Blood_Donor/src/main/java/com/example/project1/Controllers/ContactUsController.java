@@ -12,7 +12,7 @@ public class ContactUsController {
 
     @GetMapping("/contactUs")
     public String contactUsPage() {
-        return "contact_us";
+        return "contact";
     }
 
     @PostMapping("/contactUs")
