@@ -1,23 +1,43 @@
 package com.example.project1.Entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "notifications")
 public class Notification {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String title;
+
     private String message;
-    private String createdAt;
 
-    public Notification() {}
+    private String status;
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public Notification() {
+    }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public int getId() {
+        return id;
+    }
 
-    public String getMessage() { return message; }
-    public void setMessage(String message) { this.message = message; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public String getCreatedAt() { return createdAt; }
-    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
