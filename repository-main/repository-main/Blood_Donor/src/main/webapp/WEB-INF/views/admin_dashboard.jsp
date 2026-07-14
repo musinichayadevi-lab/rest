@@ -75,7 +75,7 @@ body{
     gap:15px;
     padding:16px;
     border-radius:14px;
-    margin-bottom:10px;
+    margin-bottom:12px;
     cursor:pointer;
     transition:0.3s;
     font-size:18px;
